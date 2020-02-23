@@ -69,7 +69,7 @@ router.get('/:id', async ({ params: { id } }, res) => {
  */
 router.put(
   '/:id',
-  authorise(['helper', 'admin'], 'creator'),
+  // authorise(['helper', 'admin'], 'creator'),
   validate(Tickets.schema),
   async ({ params: { id }, body: changes, user }, res) => {
     // check if status if provided, otherwise throw an error
@@ -98,7 +98,7 @@ router.put(
 */
 router.delete(
   '/:id',
-  authorise('admin'),
+  // authorise('admin'),
   async ({ params: { id } }, res) => {
     const ticket = await Tickets.remove(id);
     if (ticket) {
